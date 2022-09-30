@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Languages - Cv Florent Treyve{% endblock %}
+
+	{% block javascripts %}
+		{{ encore_entry_script_tags("app") }}
+		{{ encore_entry_script_tags('annonce') }}
+	{% endblock %}
+{% block stylesheets %}
+	{{ encore_entry_link_tags("app") }}
+	{{ encore_entry_link_tags("annonce") }}
+{% endblock %}
+
+{% block body %}
+	
+	<div class="containerAnnonce">
+		<button class="return">
+			<a href={{ path('app_homepage') }}>Retour</a>
+		</button>
+		<div class="annonceBody row">
+			<h1>{{category}}</h1>
+			<h3>{{titre}}</h3>
+			<iframe class="iframe"src="https://{{description}}" title="mon travail" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+	</div>
+
+{% endblock %}

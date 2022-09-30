@@ -1,0 +1,36 @@
+
+{% block body %}
+{% apply inline_css(source('@styles/verify.css')) %}
+    <div class="containerMail">
+        <div class="headMail">
+
+        </div>
+        <div class="bodyMail">
+            <div class="contain-imgMail">
+            <div class="divLogoMail">
+                <img class="logoMail" src="{{ email.image('@images/fichier3.png') }}"/>
+            </div>
+            <h1 class="bienvenue">Bonjour, </h1>
+                <p class="mailInline">{{ user }} viens de vous envoyer un message, vous pouvez répondre au mail suivant : {{ mail }}</p>
+            </div>
+            <div class="textMail">
+                <p class="mailInline"> object : {{ object }}</p>
+            </div>
+            <div class="textMail">
+                <p class="mailInline"> message : </p>
+                <p class="mailInline"> {{ message }}</p>
+            </div>
+
+        </div>
+        <div class="footerMail">
+			<div class="displayFooter">	
+					<div class="footer row reseauSocial" style="flex-direction: column;">
+						<p style="font-size: 11px">
+							© 2021-2022 Tous droits réservés — dev64splatoon
+						</p>
+				</div>
+			</div>
+        </div>
+    </div>
+{% endapply %}
+{% endblock %}

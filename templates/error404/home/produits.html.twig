@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produits - Plant&Flower{% endblock %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('app') }}
+{% endblock %}
+		{% block javascripts %}
+			{{ encore_entry_script_tags("app") }}
+			{{ encore_entry_script_tags("slidePrix") | replace({'src=': 'defer src='}) | raw}}
+		{% endblock %}
+
+{% block body %}
+	<main>
+		<div class="containerGlobaleProducts">
+		{# Bannière #}
+            <div class="container_imgsearchProducts">
+                    <img class="img-banniere" src="/img/banniere-search.png" alt="banniere" />
+                <div class="txt_banniereProducts">
+                    Donnez à vos végétaux une seconde
+                    vie, et achetez-en de nouveaux
+                </div>
+
+
+                    {{ form_start(form, {'attr': {'class': 'filtre searchProducts'}} ) }}
+                        <div class="bouton-searchProducts">	
+                            {{ form_row(form.q) }}
+						
+                            {{ form_row(form.categories) }}
+						<div class='searchPrix'>
+                            {{ form_row(form.min) }}
+                            {{ form_row(form.max) }}
+						</div>
+						<div id="slidePrix" data-min="{{ min }}" data-max="{{ max }}"></div>
+                            {{ form_row(form.shipment) }}
+                            <button class="btn-searchProducts" type="submit">Filtrer</button>
+                        </div> 
+                    {{ form_end(form) }}
+
+                <div class="total-annonce">
+                    		{{ total }} annonces sur {{ annonces.getTotalItemCount }}
+                </div>
+			<div class="navigation">
+    			{{ knp_pagination_render(annonces) }}
+			</div>
+            </div>
+
+		{# Fin bannière #}
+		<div class="contenuProducts">
+
+		{% set img = '' %}
+			{% for annonce in annonces %}
+			<div class="card">
+				<a class="img-annonce-flex" href={{ path('annonce', {'id': annonce.id}) }}>
+					<div class="image-annonce">
+					{% for image in images %}
+						{% if image.annonce.id == annonce.id %}
+							{% set img = annonce.images[0].name %}
+						{% endif %}
+					{% endfor %}
+						<img src={{ asset('/uploads/annonces/' ~ img) }} class="img-orchidee" alt="Image annonce"/>
+					</div>
+					<div class="card-content">
+						<div class="align-etoile">
+							<span class="nom-plante">{{ annonce.title }}</span>
+							<p class="etoile">☆</p>
+							<p class="prix">
+							{{ annonce.priceTotal }}€</p>
+						</div>
+						<div class="align-livraison">
+							{% if annonce.shipment == true %}
+								<p class="livraison">
+									Livraison possible
+								</p>
+							{% else %}
+								<p class="not-livraison">
+									Remise en main propre
+								</p>
+							{% endif %}
+						</div>
+						<p class="date-expiration">
+							Date d'expiration :  {{annonce.dateExpiration | date ('d/m/Y')}}
+						</p>
+					</div>
+				</a>
+			</div>
+			{% endfor %}
+
+	</div>	
+</main>
+
+	{% endblock %}

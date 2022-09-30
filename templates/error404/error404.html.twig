@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Error 404 - Plant&Flower{% endblock %}
+	{% block javascripts %}
+		{{ encore_entry_script_tags("app") }}
+	{% endblock %}
+{% block stylesheets %}
+  {{ encore_entry_link_tags("app") }}
+  {{ encore_entry_link_tags("error404") }} 
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="content">
+            <div class='container-txt'>
+                <h1>OUPS !</h1>
+                <p class="txt"><strong>La page que vous recherchez semble introuvable.</strong><br> Code d'erreur : 404 <br> Voici quelques liens utiles à la place :</p>
+                <div class="lien">
+                    <p>
+                        <a href="/">Accueil</a><br>
+                        <a href={{ path('about') }}>À propos de nous</a><br>
+                        <a href={{ path('contact') }}>Contact</a><br>
+                        <a href={{ path('faq') }}>FAQ</a><br>
+                        <a href={{ path('inscription') }}>Inscription</a><br>
+                        <a href={{ path('login') }}>Connexion</a>
+                    </p>
+                </div>
+            </div>
+            <div class="img">
+                <img src="img/error404.png" alt="Image de la page erreur" />
+            </div>
+        </div>
+    </div>
+{% endblock %}

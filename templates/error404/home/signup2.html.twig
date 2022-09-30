@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+	{% block javascripts %}
+		{{ encore_entry_script_tags("app") }}
+	{% endblock %}
+{% block title %}Inscription validé - Plant&Flower
+{% endblock %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags("app") }}
+	{{ encore_entry_link_tags("signup2") }}
+{% endblock %}
+
+{% block body %}
+	<div class="bloc">
+		<div class="all">
+			<h1>Félicitation votre inscription est terminée.</h1>
+			<img class="logo" src="img/clap.JPG" alt="Félicitation">
+			<p>Merci ! Vous allez être redirigé.</p>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %} 
+
+{% block title %}Erreur {{ ErrorCode }} - Plant&Flower {% endblock %} 
+	{% block javascripts %}
+		{{ encore_entry_script_tags("app") }}
+	{% endblock %}
+{% block stylesheets %}
+  {{ encore_entry_link_tags("app") }}
+  {{ encore_entry_link_tags("errors") }}
+{% endblock %} 
+
+{% block body %}
+  <div class="error"></div>
+
+  <div class="container">
+    <div class="content">
+      <div class="container-txt">
+        <h1>OUPS !</h1>
+        <h1>Error {{ ErrorCode }}</h1>
+        <h2>{{ ErrorMessage }}</h2>
+        {% if ErrorInfos != '' %}
+          {{ ErrorInfos | raw }}
+        {% endif %}
+      </div>
+      <div class="img">
+        <img src="img/error404.png" alt="Image de la page erreur" />
+      </div>
+    </div>
+  </div>
+  <div class="logo">
+    <a href={{ path("app_homepage") }}>
+      <img src="img/Logo_plants.png" alt="Logo Plant&Flower" />
+    </a>
+  </div>
+{% endblock %}

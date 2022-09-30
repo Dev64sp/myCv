@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Languages - Cv Florent Treyve{% endblock %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('app') }}
+{% endblock %}
+		{% block javascripts %}
+			{{ encore_entry_script_tags("app") }}
+			{{ encore_entry_script_tags("slidePrix") | replace({'src=': 'defer src='}) | raw}}
+		{% endblock %}
+
+{% block body %}
+	<main>
+		<div class="containerGlobaleProducts">
+		{# Bannière #}
+            <div class="container_imgsearchProducts">
+                <div class="txt_banniereProducts">
+                    Triez par languages
+                </div>
+
+
+                    {{ form_start(form, {'attr': {'class': 'filtre searchProducts'}} ) }}
+                        <div class="bouton-searchProducts">	
+                            {{ form_row(form.q) }}
+						
+                            {{ form_row(form.categories) }}
+
+                            <button class="btn-searchProducts" type="submit">Filtrer</button>
+                        </div> 
+                    {{ form_end(form) }}
+
+                <div class="total-annonce">
+                    		{{ total }} projets sur {{ annonces.getTotalItemCount }}
+                </div>
+			<div class="navigation">
+    			{{ knp_pagination_render(annonces) }}
+			</div>
+            </div>
+
+		{# Fin bannière #}
+		<div class="contenuProducts">
+
+			{% for annonce in annonces %}
+			<div class="card">
+						<a href={{ path('annonce', {'id': annonce.id}) }}>
+							<div class="image-annonce">
+							<img class='imgCard' src="{{annonce.image}}">
+							</div>
+							<div class="nom-plante">{{ annonce.title }}</div>
+							<div class="nom-plante">{{ annonce.category }}</div>
+						</a>
+				</a>
+			</div>
+			{% endfor %}
+
+	</div>	
+</main>
+
+	{% endblock %}

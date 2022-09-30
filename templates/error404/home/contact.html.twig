@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Contact - Plant&Flower{% endblock %}
+	{% block javascripts %}
+		{{ encore_entry_script_tags("app") }}
+	{% endblock %}
+{% block stylesheets %}
+  {{ encore_entry_link_tags("app") }}
+  {{ encore_entry_link_tags("contact") }}
+{% endblock %}
+
+{% block body %}
+  <div class="main-contact">
+    <div class="contact-contact-txt">
+      
+      <div class="title">
+        <h1>Contactez-nous</h1>
+        <p>Nous avons à cœur de vous offrir la meilleure expérience possible sur notre site.
+          Si vous rencontrez des difficultés avec votre compte ou si vous avez des questions à propos de notre plateforme, n'hésitez pas à nous contacter.</p>
+      </div>
+      <div>
+        <img src="img/contact.png" class="contact-image" alt="Image Contact">
+      </div>
+    </div>
+    <div class="contact-contact-form">
+      <div class="message">
+        <h3 style="text-align: center; color: #48945d; margin-bottom: 20px">Envoyez-nous un message</h3>
+
+        {{ form_start(form) }}
+          {{ form_row(form.name) }}
+          {{ form_row(form.email) }}
+          {{ form_row(form.subject) }}
+          {{ form_row(form.message) }}
+          {{ form_row(form.captcha) }} 
+          {# must be the same name of this put on the FormBuilder #}
+          {{ form_errors(form.captcha) }}
+          {# That will display the error of the captcha to user #}
+          {{ form_row(form.send) }}
+        {{ form_end(form) }}
+        
+        {# <form class="col input-message-contact">
+          <input type="text" placeholder="Nom et prénom" />
+          <input type="text" placeholder="Email" />
+          <input type="text" placeholder="Objet" />
+          <textarea wrap placeholder="Message"></textarea>
+          <button>Envoyer</button>
+        </form> #}
+      </div>
+    </div>
+  </div>
+{% endblock %}

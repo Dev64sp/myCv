@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil
+{% endblock %}
+	{% block javascripts %}
+		{{ encore_entry_script_tags("app") }}
+	{% endblock %}
+{% block stylesheets %}
+	{{ encore_entry_link_tags("app") }}
+{% endblock %}
+
+{% block body %}
+
+	<div>
+		<div>
+			<img class="image-fond" src="img/fonddesign.png">
+		</div>
+
+	<div class"container">
+		<div class="container-onglets">
+			<div class="onglets active" data-anim="1">Mes informations</div>
+			<div class="onglets" data-anim="2">Mes annonces</div>
+			<div class="onglets" data-anim="3">Achats & ventes</div>
+			<div class="onglets" data-anim="4">mes favoris</div>
+		</div>
+
+		<div class="contenu activeContenu" data-anim="1">
+			<h3>Lorem 1</h3>
+			<hr>
+			<p>Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem</p>
+		</div>
+		<div class="contenu activeContenu" data-anim="2">
+			<h3>Lorem 2</h3>
+			<hr>
+			<p>Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem</p>
+		</div>
+		<div class="contenu activeContenu" data-anim="3">
+			<h3>Lorem 3</h3>
+			<hr>
+			<p>Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem</p>
+		</div>
+		<div class="contenu activeContenu" data-anim="4">
+			<h3>Lorem 4</h3>
+			<hr>
+			<p>Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem</p>
+		</div>
+	</div>
+
+<script>
+
+</script>
+
+{% endblock %}

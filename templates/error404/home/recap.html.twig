@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Récapitulatif du profil - Plant&Flower{% endblock %}
+	{% block javascripts %}
+		{{ encore_entry_script_tags("app") }}
+	{% endblock %}
+{% block stylesheets %}
+	{{ encore_entry_link_tags("app") }}
+	{{ encore_entry_link_tags("recap") }}
+{% endblock %}
+
+{% block body %}
+	<div class="all">
+		<h1><img class="logo" src="img/Logo_plants.png"></h1>
+		<h2>Récapitulatif du profil</h2>
+
+		<div class="container">
+			<div class="content">
+				<p class="title">Nom</p>
+				<p class="title-user">Mon nom
+				</p>
+			</div>
+
+			<div class="content">
+				<p class="title">Prénom</p>
+				<p class="title-user">Mon prénom</p>
+			</div>
+
+			<div class="content">
+				<p class="title">Adresse</p>
+				<p class="title-user">Mon adresse postale</p>
+			</div>
+
+			<div class="content">
+				<p class="title">Code postal</p>
+				<p class="title-user">16035</p>
+			</div>
+
+			<div class="content">
+				<p class="title">Ville</p>
+				<p class="title-user">Ma ville</p>
+			</div>
+
+			<div class="content">
+				<p class="title">N° téléphone</p>
+				<p class="title-user">0102030405</p>
+			</div>
+
+			<div class="content">
+				<p class="title">Sexe</p>
+				<p class="title-user">Ne se prononce pas</p>
+			</div>
+
+			<div class="content">
+				<p class="title">Mail</p>
+				<p class="title-user">mon.email@mail.com</p>
+			</div>
+
+			<div class="btn-recap">
+				<div>
+					<a class="btn-precedent" href="javascript:history.go(-1)">PRÉCÉDENT</a>
+				</div>
+
+				<div>
+					<a class="btn-validation-inscription" href="#">S'INSCRIRE</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

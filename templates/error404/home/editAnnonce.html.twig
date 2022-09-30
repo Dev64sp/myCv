@@ -1,0 +1,221 @@
+{% extends "base.html.twig" %} 
+
+{% block title %}Modification d'une annonce - Plant&Flower{% endblock %} 
+
+{% block javascripts %}
+	{{ encore_entry_script_tags("app") }}
+    {{ encore_entry_script_tags("editAnnonce") }}
+{% endblock %}
+{% block stylesheets %}
+  {{ encore_entry_link_tags("app") }}
+  {{ encore_entry_link_tags("createAnnonce") }}
+{% endblock %}
+
+{% block body %}
+
+<h1>Modification</h1>
+
+{{ form_start(form) }}
+      <div class="form">
+        <div class="form_left">
+          <div class="add_images">
+            {{ form_row(form.images, {
+                'label': '+ Ajoutez vos photos',
+                'attr': {
+                  'class': 'input',
+                },
+                'id': "get-file"
+            })}}
+          </div>
+          
+          <div class="add_images_txt">
+            Ajouter jusqu'à 3 photos. (1 photo minimum est obligatoire pour vendre
+            votre végétal)
+          </div>
+          <div class="imageAnnonceContainer">
+						<div class="preview-container">
+							<img class="image previmageEdit" src="{{ asset('/uploads/annonces/' ~ images[0].name) }}"/>
+						</div>
+            <div class="preview-container">
+            {% if images|length > 1 %}
+							<img class="image previmageEdit" src="{{ asset('/uploads/annonces/' ~ images[1].name) }}"/>
+            {% else %}
+							<img class="image previmageEdit" src="" style='display : none'/>
+            {% endif %}
+						</div>
+            <div class="preview-container">
+						{% if images|length > 2 %}
+							<img class="image previmageEdit" src="{{ asset('/uploads/annonces/' ~ images[2].name) }}"/>
+            {% else %}
+							<img class="image previmageEdit" src="" style='display : none'/>
+            {% endif %}
+						</div>
+					</div>
+          {% if not form.vars.valid %}
+            <div>
+              {{ form_errors(form) }}
+            </div>
+          {% endif %}
+
+  
+
+      <div class="form_item">
+        <h3>Titre</h3>
+        {{ form_row(form.title, {
+          'label': false,
+          'attr': {
+            'class': 'input',
+            'placeholder': 'ex. Orchidée',
+          }
+        })}}
+      </div>
+
+					<div class="modeRemise">
+			<h4>Mode de remise de votre colis</h4>
+			<div class="modeFlex">
+				<input type="radio"  name="mode" id="remise" class="input checked active" checked>
+				<i class="fa-solid fa-handshake icon"></i>
+				<p class="mode">Remise en main propre</p>
+			</div>
+
+			<div class="modeFlex">
+				<input type="radio"  name="mode" id="mode"  class="input checked" >
+				<img class="mondial" src="/img/mondialRelay.png" alt="Logo Mondial Relay" ></img>
+					<p class="mode">Mondial Relay</p>			
+			</div>
+
+			<div class="contenu-widget">
+				<div class="mondial_widget" id="Zone_Widget"></div>
+					<div>
+						<input type="hidden" id="ParcelShopCode" name="ParcelShopCode" />
+					</div>
+			</div>
+		</div>
+    <div class="adressExp">
+      <div class="form_item villeExpedition">
+        <h3>Ville</h3>
+        {{form_row(form.ville, {
+          'label': false,
+          'attr': {
+            'class': 'input',
+            'placeholder': 'ex. Paris',
+          }
+        })}}
+      </div>
+      <div class="form_item">
+        {{ form_row(form.expAddress, {
+          'label': false,
+          'attr': {
+            'class': 'input',
+            'placeholder': 'Adresse',
+          }
+        })}}
+      </div>
+      <div class="form_item">
+        {{ form_row(form.expZipCode, {
+          'label': false,
+          'attr': {
+            'class': 'input',
+            'placeholder': 'Code Postal',
+          }
+        })}}
+      </div>
+    </div>
+      <div class="form_item">
+        <h3>Catégorie</h3>
+        {{ form_row(form.category, {
+          'label': false,
+          'placeholder': 'Choisissez votre catégorie',
+          'attr': { 
+            'class': 'input',
+          }
+        })}}
+      </div>
+
+      <div class="form_item">
+        <h3>Décrivez votre végétal (facultatif)</h3>
+        {{ form_row(form.description, {
+          'label': false,
+          'attr': {
+            'class': 'input',
+            'placeholder': 'ex. cactus en bonne état',
+          }
+        })}}
+      </div>
+      <div class="form_item">
+        <h3>Poids du végétal:</h3>
+        {{form_row(form.poids, {
+          'label': false,
+          'attr': {
+            'class': 'input',
+            }
+        })}}
+      </div>
+    </div>
+
+    <div class="form_right">
+
+      <div class="form_item">
+        <h3>Date d'expiration</h3>
+        {{form_row(form.dateExpiration, {
+          'label': false,
+          'attr': {
+            'class': 'input',
+          }
+        })}}
+      </div>
+
+      <div class="form_item">
+        <h3>Prix</h3>
+        {{form_row(form.priceOrigin, {
+          'label': false,
+          'id': 'first',
+          'attr': {
+            'class': 'input',
+            'placeholder': 'ex. 2,50',
+          }
+        })}}
+      </div>
+       <div class="form_item">
+        <h3>Prix définitif</h3>
+        <div class="price" id="result">€</div>
+      </div>
+
+      <div class="form_item">
+        <p>
+          <em>Pour que le site reste gratuit, nous appliquons à l'acheteur un frais de service</em>
+        </p>
+      </div>
+
+      <div class="form_item check">
+        {{form_row(form.shipment,{
+          'label': false,
+          'attr': {
+            'class': 'checkbox',
+          }
+          })}}
+        <h3>Livraison possible</h3>
+      </div>
+
+      <div class="form_item check">
+        {{form_row(form.plantPot,{
+          'label': false,
+          'attr': {
+            'class': 'checkbox',
+          }
+        })}}
+        <h3>Pot disponible</h3>
+      </div>
+
+      <div class="form_item">
+        <button type="submit">MODIFIER</button>
+      </div>
+    </div>
+  </div>
+    {{ form_end(form) }}
+		<div id="Zone_Widget"></div>
+    <input type="hidden" id="expRelId"/>
+  </div>
+</div>
+
+{% endblock %}

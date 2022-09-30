@@ -1,0 +1,25 @@
+endroid_qr_code:
+    default:
+        writer: Endroid\QrCode\Writer\SvgWriter
+        writerOptions:
+            exclude_xml_declaration: true # default: false
+        data: 'This is customized QR code'
+        size: 150
+        encoding: 'UTF-8'
+        errorCorrectionLevel: 'low' # 'low', 'medium', 'quartile', or 'high'
+        roundBlockSizeMode: 'margin'
+        logoPath: '%kernel.project_dir%/public/img/Logo_PF.png'
+        logoResizeToWidth: 0
+        validateResult: false
+    custom:
+        writer: Endroid\QrCode\Writer\PngWriter
+        writerOptions:
+            exclude_xml_declaration: true # default: false
+        data: 'This is customized QR code'
+        size: 150
+        encoding: 'UTF-8'
+        errorCorrectionLevel: 'low' # 'low', 'medium', 'quartile', or 'high'
+        roundBlockSizeMode: 'margin'
+        logoPath: '%kernel.project_dir%/public/img/Logo_PF.png'
+        logoResizeToWidth: 0
+        validateResult: false

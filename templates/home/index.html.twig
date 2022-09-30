@@ -1,0 +1,145 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acceuil - Cv Florent Treyve{% endblock %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('app') }}
+{% endblock %}
+		{% block javascripts %}
+			{{ encore_entry_script_tags("app") }}
+		{% endblock %}
+
+{% block body %}
+	<main>
+		<div class="containerGlobale">
+		{# Bannière #}
+		<div class="container_imgsearch">
+			<div class="txt_banniere">
+				Retrouvez mes différents projets ci-dessous!
+			</div>
+		</div>
+
+		{# Fin bannière #}
+
+		{# Début caroussel test #}
+
+		<div id="slideshow">
+			<div  id="slides">
+				{% for lastannonce in lastAnnonces %}
+					<div class="item" data-ref={{lastannonce.id}}>
+						<a href={{ path('annonce', {'id': lastannonce.id}) }}>
+							<div class="image-annonceSlide">
+							<img class='imgCard' src="{{lastannonce.image}}">
+							</div>
+							<div class="nom-plante">{{ lastannonce.title }}</div>
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+
+		<div class="btn-vegetaux-mobile">
+			<button class="btn-vegetaux"><a class="lien-btn-vegetaux" href="{{ path('products') }}">Tous mes projets</a></button>
+		</div>
+		{# Fin du carrousel #}
+
+		{# Début rubrique Comment ça fonctionne #}
+		<p class="title-fonctionnement">Me découvrir ...</p>
+		<div class="text-fonctionnement">
+		<div>
+			<p class='text moi'>"Développeur Web junior adepte de toutes les étapes du développement
+						Web doté d'un ensemble de compétences diversifié et prometteur.</p></div>
+				<div><p class='text moi'>Connaissance d'un assortiment de technologies, y compris HTML, CSS,
+						Javascript, JQuery, PHP, Symfony, docker, WordPress, GIT et MySQL Server.</p></div>
+				<div><p class='text moi'>Capable de s'autogérer efficacement lors de projets indépendants,
+						ainsi que de collaborer en équipe."
+			</p>
+		</div>
+
+		<div class="container-fonctionnement">
+				<div class="decouvre">
+					<div class="decouvre-img"></div>
+					<div class="txt-decouvre">
+						<h2 class="title-etape">Expériences professionnelles</h2>
+						<ul>
+							<li class='date'>- juin 2011 / octobre 2022</li>
+							<li class='metier'>Formation Développeur Web et Web mobile</li>
+							<li class=''>
+							Formation sur tous les languages de base Front-end et Back-end pour le développemnent de site web ou d'apllication mobile.
+							</li>
+						</ul>
+						<ul>
+							<li class='date'>- juin 2014 / janvier 2021</li>
+							<li class='metier'>Responsable technique/Achats SARL ROGA</li>
+							<li class=''>
+								Etablit et suit le planning détaillé de la mise en place du nouveau produit.
+								Gère les évolutions technologiques des produits et des logiciels liés à la production.
+								Etudie la faisabilité et la mise en place des nouvelles normes produits (normes CE, label,
+								biocides, CSTB, CEBTP ...)
+								Définit les nomenclatures de chaque produit fabriqué et s'assure de la résolution
+								des problèmes (Création des étiquettes produits).
+								Veille au quotidien au respect des délais, de la qualité, et des coûts de la production.
+							</li>
+						</ul>
+						<ul>
+							<li class='date'>- Juin 2005 / juin 2014</li>
+							<li class='metier'>Gestionnaire délégué traitement produits chimiques</li>
+							<li class=''>
+								Déterminer les risques, organiser la mise en place du chantier
+								(sécurité, plan de prévention,...).
+								Gérer une équipe, organiser leur travail, faire le lien entre le client et 
+								les différents prestataires de services intervenant sur le chantier.
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="reserve">
+					<div class="reserve-img"></div>
+					<div class="txt-decouvre">
+						<h2 class="title-etape">Compétences</h2>
+						<ul>
+							<li class='metier'>Communication :</li>
+							<li class=''>Gestion relation client</li>
+							<li class='metier'>Design :</li>
+							<li class=''>Illustrator, Figma</li>
+							<li class='metier'>Adaptabilité :</li>
+							<li class=''>Capacité d’adaptation rapide</li>
+							<li class='metier'>IDE :</li>
+							<li class=''>VisualStudio Code</li>
+							<li class='metier'>Base de donnée :</li>
+							<li class=''>MySQL</li>
+							<li class='metier'>Languages :</li>
+							<li class=''>HTML, CSS, Javascript,PHP, JQuery, Wordpress</li>
+						</ul>	
+					</div>
+				</div>
+
+				<div class="receptionne">
+					<div class="receptionne-img"></div>
+					<div class="txt-decouvre">
+					<h2 class="title-etape">Diplômes et formations</h2>
+					<ul>
+							<li class='date'>- 2021 et 2022</li>
+							<li class=''> Formation Développeur Web et Web mobile</li>
+							<li class='date'>- 2017 et 2020</li>
+							<li class=''> Formation CERTIBIOCIDE</li>
+							<li class='date'>- 2011 / 2013</li>
+							<li class=''> Formation équipier seconde intervention + port ARI;Formation ADR (transport matière dangereuse)</li>
+							<li class='date'>- 2008 / 2012</li>
+							<li class=''> N2 (GSI) entreprise extérieur sur site pétrochimique, SST</li>
+							<li class='date'>- 2011</li>
+							<li class=''> Formation ATEX</li>
+							<li class='date'>Loisir</li>
+							<li class=''>Arts Graphiques, maitrise d’ILLUSTRATOR</li>
+							<li class='date'>Langues</li>
+							<li class='metier'>Anglais :</li>
+							<li class=''>Bonne connaissance de l’anglais professionnel</li>
+						</ul>
+					</div>
+				</div>
+		</div>
+	</div>	
+</main>
+
+	{% endblock %}

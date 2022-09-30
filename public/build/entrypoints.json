@@ -1,0 +1,66 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/build/runtime.0d3baa49.js",
+        "/build/755.49c5771e.js",
+        "/build/211.265f1838.js",
+        "/build/880.dc369f48.js",
+        "/build/app.6920d933.js"
+      ],
+      "css": [
+        "/build/988.1d6776ab.css",
+        "/build/app.ab3a29d9.css"
+      ]
+    },
+    "slider": {
+      "js": [
+        "/build/runtime.0d3baa49.js",
+        "/build/755.49c5771e.js",
+        "/build/slider.35d7f135.js"
+      ],
+      "css": [
+        "/build/988.1d6776ab.css"
+      ]
+    },
+    "burger": {
+      "js": [
+        "/build/runtime.0d3baa49.js",
+        "/build/755.49c5771e.js",
+        "/build/burger.25ef4cb1.js"
+      ],
+      "css": [
+        "/build/988.1d6776ab.css"
+      ]
+    },
+    "contact": {
+      "js": [
+        "/build/runtime.0d3baa49.js",
+        "/build/contact.964c9a02.js"
+      ],
+      "css": [
+        "/build/contact.92bc42d9.css"
+      ]
+    },
+    "slidePrix": {
+      "js": [
+        "/build/runtime.0d3baa49.js",
+        "/build/211.265f1838.js",
+        "/build/slidePrix.622e567c.js"
+      ],
+      "css": [
+        "/build/988.1d6776ab.css",
+        "/build/slidePrix.ab3a29d9.css"
+      ]
+    },
+    "annonce": {
+      "js": [
+        "/build/runtime.0d3baa49.js",
+        "/build/annonce.8062aac7.js"
+      ],
+      "css": [
+        "/build/annonce.9e5aea32.css"
+      ]
+    }
+  }
+}

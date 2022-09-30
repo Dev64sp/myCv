@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Contact - Cv Florent Treyve{% endblock %}
+	{% block javascripts %}
+		{{ encore_entry_script_tags("app") }}
+	{% endblock %}
+{% block stylesheets %}
+  {{ encore_entry_link_tags("app") }}
+  {{ encore_entry_link_tags("contact") }}
+{% endblock %}
+
+{% block body %}
+  <div class="main-contact">
+    <div class="contact-contact-txt">
+      
+      <div class="title">
+        <h1>Contactez moi!</h1>
+        <p>Si vous avez des questions ou des conseils, des idées ou des propositions, <br> n'hésitez pas à me contacter.</p>
+      </div>
+    </div>
+    <div class="contact-contact-form">
+      <div class="message">
+        <h3 class='text'>Envoyez-moi un message</h3>
+
+        {{ form_start(form) }}
+        <p class='text'>{{ message }}</p>
+          {{ form_row(form.name) }}
+          {{ form_row(form.email) }}
+          {{ form_row(form.subject) }}
+          {{ form_row(form.message) }}
+          {{ form_row(form.captcha) }} 
+          {# must be the same name of this put on the FormBuilder #}
+          {{ form_errors(form.captcha) }}
+          {# That will display the error of the captcha to user #}
+          {{ form_row(form.send) }}
+        {{ form_end(form) }}
+        
+      </div>
+    </div>
+  </div>
+{% endblock %}
